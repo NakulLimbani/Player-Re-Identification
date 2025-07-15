@@ -1,6 +1,4 @@
-# ⚽ Player Re-Identification — Stealth Mode ML
-
-# ⚽️ Player Re-Identification from Single Broadcast Feed
+# ⚽️ Player Re-Identification from Single Broadcast Feed — Stealth Mode ML
 
 ![Football Tracking](https://img.shields.io/badge/Player%20Tracking-Complete-green)
 
