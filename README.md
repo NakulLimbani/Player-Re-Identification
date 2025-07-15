@@ -1,4 +1,4 @@
-# ⚽ Player Re-Identification — Stealth Mode ML Internship Assignment
+# ⚽ Player Re-Identification — Stealth Mode ML
 
 # ⚽️ Player Re-Identification from Single Broadcast Feed
 
