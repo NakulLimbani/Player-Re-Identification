@@ -137,7 +137,7 @@ Final output video keeps the original commentary, providing a realistic viewing 
 
 ✉️ Email: nakulramesh2@gmail.com | nl0027@srmist.edu.in
 
-💼 **[LinkedIn](www.linkedin.com/in/nakul-limbani)**
+💼 **[LinkedIn](https://www.linkedin.com/in/nakul-limbani/)**
 
 💻 **[GitHub](https://github.com/NakulLimbani)**
 
