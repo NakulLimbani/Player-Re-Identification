@@ -1,64 +1,153 @@
-# Player-Re-Identification
-Assignment submission for Stealth Mode ML — Player Re-Identification.
-
 # ⚽ Player Re-Identification — Stealth Mode ML Internship Assignment
 
-![Tracked Players Example](https://user-images.githubusercontent.com/your-sample-image.png) <!-- Optional banner image if you want -->
+# ⚽️ Player Re-Identification from Single Broadcast Feed
+
+![Football Tracking](https://img.shields.io/badge/Player%20Tracking-Complete-green)
 
 ---
 
 ## 🟢 Overview
+This project implements an end-to-end **player detection and re-identification system** on a single broadcast feed of a football match.
 
-This repository contains my submission for the Stealth Mode Machine Learning Internship assignment focused on **player re-identification** in soccer videos.
-
-The task was to build a system that:
-- Detects players throughout a match.
-- Assigns **consistent unique IDs** to each player.
-- Maintains those IDs even when players leave or re-enter the scene.
-- Handles challenges such as occlusion, motion blur, and clutter.
+The system:
+- Detects players in every frame.
+- Assigns **unique IDs** and keeps them consistent as players move, leave, or re-enter.
+- Handles occlusion, motion blur, and crowded formations.
+- Produces a final video with **original commentary audio preserved**.
 
 ---
 
-## 🎥 Demo
+## 🎬 Demo
 
-✅ **[Download final output video with audio](final_tracked_with_audio.mp4)** — Player IDs overlayed with original commentary.
+🎥 **Preview video (click to play):**
+
+<video src="tracked_output_final_nuanced_15sec_output_720p_with_audio.mp4" controls="controls" width="100%"></video>
+
+✅ **[Download final output video with audio](tracked_output_final_nuanced_15sec_output_720p_with_audio.mp4)** — IDs overlayed on players, original commentary included.
 
 ---
 
 ## 💡 Approach
 
 ### 🔎 Detection
-- Used YOLOv11 (Ultralytics) model for robust player detection.
-- Filtered only **players** (class index: 2) in each frame.
+- Used YOLOv11 (Ultralytics) for robust player detection.
+- Filtered players only (class index `2`).
 
 ### 🟢 Re-Identification
-- Implemented **Hungarian assignment algorithm** (global assignment) to reduce ID switching.
-- Used IoU and spatial proximity as matching criteria.
-- Basic tracker memory updated frame by frame.
+- Used IoU-based ID assignment logic.
+- Frame-by-frame memory update to reduce ID switching.
 
 ### 🎬 Output
-- Generated frame-by-frame output video with bounding boxes and assigned IDs.
-- Merged final output video with **original commentary audio** using ffmpeg.
+- Overlay bounding boxes and IDs on each frame.
+- Final video exported and original commentary audio merged using ffmpeg.
 
 ---
 
-## 🚩 Results
+## 💾 Download model weights
 
-- IDs mostly stable across frames.
-- Occasional ID fluctuations acknowledged and explained.
-- Video duration and audio match original input exactly.
+The YOLOv11 model checkpoint is large (>100 MB) and is not included directly in this repo.
 
+▶️ **[Download best.pt from Google Drive](https://drive.google.com/file/d/1-5fOSHOSB9UXyP_enOoZNAMScrePVcMD/view)**
+
+After downloading, place it into the project root directory and update:
+
+```python
+MODEL_PATH = "best.pt"
+```
 ---
 
-## 🔥 Future Improvements
+🛠️ Setup
+💻 Virtual environment (recommended)
 
-- Integrate **appearance embeddings** (e.g., jersey color or deep Re-ID features).
-- Add motion prediction (e.g., Kalman filter).
-- Use OCR to extract jersey numbers for robust ID assignment.
+```python
+git clone https://github.com/NakulLimbani/Player-Re-Identification.git
+cd Player-Re-Identification
 
----
+# Create virtual environment
+python -m venv venv
 
-## ⚙️ Setup
+# Activate
+# Windows
+venv\Scripts\activate
+# macOS/Linux
+source venv/bin/activate
 
-```bash
+# Install dependencies
 pip install -r requirements.txt
+```
+---
+
+▶️ Running
+
+🟢 Notebook (step-by-step)
+Open and run Player_Re_Identification_Single_Feed.ipynb in Jupyter or Colab to explore each step interactively.
+
+⚡ Python script (direct)
+Run main.py to execute full pipeline, including video generation and audio merging.
+
+```python
+python main.py
+```
+---
+
+🗂️ Repository structure
+```
+├── 15sec_input_720p.mp4
+├── tracked_output_final_nuanced_15sec_output_720p_with_audio.mp4
+├── Player_Re_Identification_Single_Feed.ipynb
+├── main.py
+├── README.md
+├── requirements.txt
+└── archive/
+    ├── tracked_output_approach_1_e2e.mp4
+    ├── tracked_output_enhanced_approach_2_e2e.mp4
+    └── tracked_output_final_nuanced_15sec_output_720p_no_audio.mp4
+
+💬 Note: archive/ contains intermediate outputs for reference.
+```
+---
+
+🗣️ Audio preservation
+
+Final output video keeps the original commentary, providing a realistic viewing experience.
+
+---
+
+🔥 Future improvements
+
+. Use appearance embeddings (e.g., jersey color) for stronger ID consistency.
+
+. Integrate motion prediction (e.g., Kalman filter).
+
+. OCR-based jersey number recognition.
+
+---
+
+✅ Deliverables summary
+
+. Robust player detection and tracking logic.
+
+. Consistent ID assignment demonstrated visually.
+
+. Final video with commentary audio.
+
+. Notebook and standalone script provided.
+
+. Virtual environment instructions and minimal dependencies.
+
+---
+
+💬 Contact
+
+👤 Nakul Limbani
+
+✉️ Email: nakulramesh2@gmail.com | nl0027@srmist.edu.in
+
+💼 LinkedIn ![LinkedIn](www.linkedin.com/in/nakul-limbani) 
+
+💻 ![GitHub](https://github.com/NakulLimbani)
+
+⚽️ Thank you for reviewing — enjoy tracking!
+
+---
+
